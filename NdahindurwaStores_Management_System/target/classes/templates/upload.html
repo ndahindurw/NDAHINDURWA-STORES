@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>Upload User Data</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa; /* Light background color */
+      font-family: Arial, sans-serif; /* Font style */
+    }
+    .container {
+      margin-top: 50px; /* Space above the container */
+      border: 1px solid #ced4da; /* Border for container */
+      border-radius: 8px; /* Rounded corners */
+      padding: 30px; /* Padding inside the container */
+      background-color: #ffffff; /* White background for the form */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+    }
+    .message {
+      margin-top: 20px; /* Space above the message */
+    }
+    h1 {
+      color: #1abc9c; /* Custom color for heading */
+    }
+    h3 {
+      margin-top: 20px; /* Space above the section heading */
+      color: #333; /* Darker color for subsection heading */
+    }
+    .btn-secondary {
+      background-color: #007bff; /* Custom background color for button */
+      border: none; /* Remove border */
+    }
+    .btn-secondary:hover {
+      background-color: #0056b3; /* Darker shade on hover */
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <h1 class="text-center">Upload User Data</h1>
+
+  <!-- User Upload Form -->
+  <h3>Upload User Data</h3>
+  <form action="/admin/upload/users" method="post" enctype="multipart/form-data" class="mt-4">
+    <div class="form-group">
+      <label for="userFile">Select User CSV file:</label>
+      <input type="file" id="userFile" name="file" accept=".csv" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-secondary btn-block">Upload Users</button>
+  </form>
+
+  <!-- User Upload Message -->
+  <div th:if="${userMessage}" class="message alert alert-info" role="alert">
+    <p th:text="${userMessage}"></p>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

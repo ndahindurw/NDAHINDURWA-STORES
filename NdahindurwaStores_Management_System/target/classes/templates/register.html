@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <style>
+    /* Center the form container */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f9;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Form container styling */
+    .form-container {
+      width: 100%;
+      max-width: 400px;
+      padding: 2rem;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    /* Form title styling */
+    h2 {
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+
+    /* Input field styling */
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+      color: #555;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+      box-sizing: border-box;
+      transition: border-color 0.3s;
+    }
+
+    /* Button styling */
+    button[type="submit"] {
+      width: 100%;
+      padding: 0.8rem;
+      background-color: #3498db;
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #2980b9;
+    }
+
+    /* Error message styling */
+    .error-message {
+      color: #e74c3c;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <h2>Register</h2>
+
+  <form action="#" th:action="@{/register}" th:object="${user}" method="post">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" th:field="*{username}" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" th:field="*{password}" required>
+
+    <button type="submit">Register</button>
+
+    <div class="error-message" th:if="${error}" th:text="${error}"></div>
+  </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>User List</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Page Background */
+    body {
+      background-color: #f0f4f8;
+      font-family: 'Roboto', sans-serif;
+      color: #333;
+      margin: 0;
+    }
+
+    /* Container Styling */
+    .container {
+      margin-top: 30px;
+      padding: 25px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Heading Styling */
+    h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #0d6efd;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Table Styling */
+    .table {
+      color: #333;
+    }
+
+    .table thead {
+      background-color: #0d6efd;
+      color: #ffffff;
+    }
+
+    .table th, .table td {
+      vertical-align: middle;
+      text-align: center;
+    }
+
+    /* Table Row Hover Effect */
+    .table-hover tbody tr:hover {
+      background-color: #f1f5fa;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>User List</h2>
+  <table class="table table-bordered table-striped table-hover">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Username</th>
+      <th>Password</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Phone Number</th>
+      <th>Role</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+      <td th:text="${user.id}"></td>
+      <td th:text="${user.username}"></td>
+      <td th:text="${user.password}"></td>
+      <td th:text="${user.firstName}"></td>
+      <td th:text="${user.lastName}"></td>
+      <td th:text="${user.email}"></td>
+      <td th:text="${user.phoneNumber}"></td>
+      <td th:text="${user.role}"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
